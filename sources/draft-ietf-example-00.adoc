@@ -1,0 +1,27 @@
+= TODO Document Title
+:doctype: internet-draft
+:name: draft-ietf-example-00
+:ipr: trust200902
+:area: Applications
+:intended-series: full-standard
+:workgroup: CALEXT
+:published-date: 2026-01-01
+:fullname: TODO Author Name
+:lastname: TODO
+:forename_initials: TODO
+:affiliation: TODO Organization
+:email: todo@example.com
+:mn-document-class: ietf
+:mn-output-extensions: xml,rfc,txt,html,rxl
+:local-cache-only:
+:data-uri-image:
+
+include::sections/00-abstract.adoc[]
+
+include::sections/01-scope.adoc[]
+
+include::sections-ietf/02-conventions.adoc[]
+
+include::sections/03-terms.adoc[]
+
+include::sections-ietf/99-references.adoc[]

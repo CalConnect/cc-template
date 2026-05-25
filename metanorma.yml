@@ -3,6 +3,7 @@ metanorma:
   source:
     files:
       - sources/cc-XXXXX.adoc
+      - sources/draft-ietf-example-00.adoc
   collection:
     name: "TODO: Collection name"
     organization: CalConnect
