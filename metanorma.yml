@@ -1,0 +1,8 @@
+---
+metanorma:
+  source:
+    files:
+      - sources/cc-XXXXX.adoc
+  collection:
+    name: "TODO: Collection name"
+    organization: CalConnect

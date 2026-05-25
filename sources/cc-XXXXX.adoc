@@ -1,0 +1,24 @@
+= CC XXXXX: TODO Document Title
+:docnumber: XXXXX
+:copyright-year: 2026
+:language: en
+:doctype: standard
+:edition: 1
+:status: working-draft
+:revdate: 2026-01-01
+:technical-committee: TODO
+:fullname: TODO Author Name
+:surname: TODO
+:givenname: TODO
+:mn-document-class: cc
+:mn-output-extensions: xml,html,pdf,rxl
+:local-cache-only:
+:data-uri-image:
+
+include::sections/00-abstract.adoc[]
+
+include::sections/01-scope.adoc[]
+
+include::sections/02-normative-references.adoc[]
+
+include::sections/03-terms.adoc[]

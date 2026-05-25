@@ -1,0 +1,3 @@
+== Scope
+
+TODO: Describe the scope of this document.
