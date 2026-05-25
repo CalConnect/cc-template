@@ -1,4 +1,5 @@
-= CC XXXXX: TODO Document Title
+= CalConnect Standard: TODO Document Title
+:title: TODO Document Title
 :docnumber: XXXXX
 :copyright-year: 2026
 :language: en
@@ -6,10 +7,12 @@
 :edition: 1
 :status: working-draft
 :revdate: 2026-01-01
-:technical-committee: TODO
+:published-date: 2026-01-01
+:technical-committee: CALENDAR
 :fullname: TODO Author Name
 :surname: TODO
 :givenname: TODO
+:affiliation: TODO Organization
 :mn-document-class: cc
 :mn-output-extensions: xml,html,pdf,rxl
 :local-cache-only:
@@ -17,8 +20,12 @@
 
 include::sections/00-abstract.adoc[]
 
+include::sections/01-intro.adoc[]
+
 include::sections/01-scope.adoc[]
 
 include::sections/02-normative-references.adoc[]
 
 include::sections/03-terms.adoc[]
+
+include::sections/99-acknowledgements.adoc[]

@@ -9,7 +9,7 @@ Supports single-publishing (CalConnect only) and dual-publishing (CalConnect + I
 . Replace `XXXXX` with the assigned document number:
   * `sources/cc-XXXXX.adoc` → `sources/cc-51020.adoc`
   * `metanorma.yml` → update the file list and collection name
-. For IETF dual-publishing, rename `sources/draft-ietf-example-00.adoc` to match your IETF draft name.
+. For IETF dual-publishing, rename `sources/draft-ietf-calext-example-00.adoc` to match your IETF draft name.
 . Delete any files you don't need (IETF files if single-publishing, or vice versa).
 . Write your document in AsciiDoc under `sources/`.
 . Add the `metanorma-release` GitHub topic to the repository.
@@ -29,7 +29,7 @@ Supports single-publishing (CalConnect only) and dual-publishing (CalConnect + I
 ├── metanorma.release.yml
 └── sources/
     ├── cc-XXXXX.adoc             # CalConnect document
-    └── sections/                 # Shared sections
+    └── sections/                 # Sections
 ```
 
 === Dual-publishing (CalConnect + IETF)
@@ -41,21 +41,24 @@ Supports single-publishing (CalConnect only) and dual-publishing (CalConnect + I
 ├── .gitignore
 ├── Gemfile
 ├── metanorma.yml                 # Lists both .adoc files
-├── metanorma.release.yml         # Routes cc-* and draft-* to channels
+├── metanorma.release.yml         # Only routes cc-* to channels
 └── sources/
-    ├── cc-XXXXX.adoc             # CalConnect document
-    ├── draft-ietf-example-00.adoc # IETF internet-draft
-    ├── sections/                 # Shared + CC-specific sections
+    ├── cc-XXXXX.adoc             # CalConnect document (released)
+    ├── draft-ietf-calext-example-00.adoc  # IETF internet-draft (not released)
+    ├── sections/                 # Shared sections (abstract, intro, scope, terms)
     │   ├── 00-abstract.adoc
+    │   ├── 01-intro.adoc
     │   ├── 01-scope.adoc
     │   ├── 02-normative-references.adoc
-    │   └── 03-terms.adoc
-    └── sections-ietf/            # IETF-specific sections
+    │   ├── 03-terms.adoc
+    │   └── 99-acknowledgements.adoc
+    └── sections-ietf/            # IETF-specific sections (conventions, references)
         ├── 02-conventions.adoc
         └── 99-references.adoc
 ```
 
-Both documents can share sections from `sections/` while having format-specific sections in `sections-ietf/`.
+Both documents share sections from `sections/` (abstract, intro, scope, terms).
+IETF-specific content goes in `sections-ietf/` (BCP 14 conventions, IETF-style references).
 
 == Document types
 
@@ -73,57 +76,88 @@ Set the `:doctype:` attribute in your `.adoc` header:
 |`administrative` |Minutes, agendas, reports |Administrative
 |`amendment` |Amendment to a standard |Amendments & Technical Corrigenda
 |`technical-corrigendum` |Technical corrigendum |Amendments & Technical Corrigenda
-|`internet-draft` |IETF internet-draft |Standards, Specifications & Reports
 |===
 
 === CalConnect document attributes
 
 [source,adoc]
 ----
-= Document Title
+= CalConnect Standard: TODO Document Title
+:title: TODO Document Title
 :docnumber: XXXXX
+:copyright-year: 2026
+:language: en
 :doctype: standard
 :edition: 1
 :status: working-draft
+:revdate: 2026-01-01
+:published-date: 2026-01-01
+:technical-committee: CALENDAR
+:fullname: TODO Author Name
+:surname: TODO
+:givenname: TODO
+:affiliation: TODO Organization
 :mn-document-class: cc
 :mn-output-extensions: xml,html,pdf,rxl
+:local-cache-only:
+:data-uri-image:
+----
+
+Additional authors use `_2`, `_3` suffixes:
+
+[source,adoc]
+----
+:fullname_2: Second Author
+:surname_2: Author
+:givenname_2: Second
+:affiliation_2: Another Organization
 ----
 
 === IETF document attributes
 
 [source,adoc]
 ----
-= Document Title
+= TODO Document Title
 :doctype: internet-draft
-:name: draft-ietf-example-00
+:name: draft-ietf-calext-example-00
+:status: standard
 :ipr: trust200902
 :area: Applications
 :intended-series: full-standard
-:workgroup: CALEXT
+:revdate: 2026-01-01
+:fullname: TODO Author Name
+:lastname: TODO
+:forename_initials: TODO
+:affiliation: TODO Organization
+:address: TODO Street + \
+TODO City, TODO State TODO Code + \
+TODO Country
+:email: todo@example.com
 :mn-document-class: ietf
 :mn-output-extensions: xml,rfc,txt,html,rxl
+:local-cache-only:
+:data-uri-image:
 ----
 
 Key differences from CalConnect documents:
 
-* `:mn-document-class: ietf` — uses IETF slug and formatting rules
-* `:name:` — the IETF draft name (used for slug derivation)
-* `:ipr:`, `:area:`, `:intended-series:`, `:workgroup:` — IETF-specific metadata
-* `:mn-output-extensions:` includes `rfc` and `txt` instead of `pdf`
+* `:mn-document-class: ietf` — uses IETF formatting rules
+* `:name:` — the IETF draft name (e.g. `draft-ietf-calext-valarm-extensions-01`)
+* `:ipr:`, `:area:`, `:intended-series:` — IETF-specific metadata
+* `:mn-output-extensions:` includes `rfc` and `txt`, not `pdf`
+* Author format uses `:lastname:` / `:forename_initials:` instead of `:surname:` / `:givenname:`
+* Author format includes `:address:` and `:email:` fields
 
 == Channel routing
 
-`metanorma.release.yml` controls which channel(s) your documents are published to.
-The https://github.com/metanorma/metanorma-release[metanorma-release gem] reads this file during the release workflow.
-
-For dual-publishing (CalConnect + IETF to the same channel):
+`metanorma.release.yml` controls which documents are released.
+Only CalConnect documents (`cc-*`) are released to channels —
+IETF internet-drafts are published through the IETF process, not via metanorma-release.
 
 [source,yaml]
 ----
 documents:
   - pattern: "cc-*"
-    channels: [public/standards]
-  - pattern: "draft-*"
     channels: [public/standards]
 ----
 
@@ -139,8 +173,6 @@ documents:
   - pattern: "cc-a-*"
     channels: [public/admin]
 ----
-
-Pattern matching uses glob syntax against the document slug (derived from the identifier).
 
 == Stages
 

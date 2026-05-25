@@ -1,21 +1,12 @@
 # metanorma-release routing configuration.
 # https://github.com/metanorma/metanorma-release
 #
-# Documents are matched by slug pattern and assigned to channels.
-# The aggregator site (standards.calconnect.org) subscribes to channels
-# to discover and publish your documents.
+# Only CalConnect documents (cc-*) are released to standards.calconnect.org.
+# IETF internet-drafts are published through the IETF process, not here.
 #
 # Slug is derived from the document identifier:
 #   CC 51020:2019 → cc-51020-2019
-#   draft-ietf-example-00 → draft-ietf-example-00
-#
-# Channel hierarchy:
-#   public/*      → visible on standards.calconnect.org
-#   members/*     → members-only (if the site supports it)
-#   internal/*    → not published to any site
 
 documents:
   - pattern: "cc-*"
-    channels: [public/standards]
-  - pattern: "draft-*"
     channels: [public/standards]

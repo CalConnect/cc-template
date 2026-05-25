@@ -3,5 +3,6 @@
 [bibliography]
 === Normative References
 
-* [[[RFC2119, IETF RFC 2119]]]
-* [[[RFC5545, IETF RFC 5545]]]
+* [[[RFC2119, IETF RFC 2119]]], _Key words for use in RFCs to Indicate Requirement Levels_.
+* [[[RFC5545, IETF RFC 5545]]], _Internet Calendaring and Scheduling Core Object Specification (iCalendar)_.
+* [[[RFC8174, IETF RFC 8174]]], _Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words_.
