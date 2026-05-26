@@ -1,7 +1,5 @@
-== References
-
 [bibliography]
-=== Normative References
+== Normative references
 
 * [[[RFC2119,IETF RFC 2119]]]
 * [[[RFC5545,IETF RFC 5545]]]

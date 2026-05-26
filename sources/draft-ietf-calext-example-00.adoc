@@ -3,7 +3,7 @@
 :name: draft-ietf-calext-example-00
 :status: standard
 :ipr: trust200902
-:area: Applications
+:area: art
 :intended-series: full-standard
 :revdate: 2026-01-01
 :fullname: TODO Author Name

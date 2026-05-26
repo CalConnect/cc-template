@@ -24,8 +24,8 @@ include::sections/01-intro.adoc[]
 
 include::sections/01-scope.adoc[]
 
-include::sections/02-normative-references.adoc[]
+include::sections/02-norm-refs.adoc[]
 
 include::sections/03-terms.adoc[]
 
-include::sections/99-acknowledgements.adoc[]
+include::sections/99-bibliography.adoc[]

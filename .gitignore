@@ -25,3 +25,4 @@ deploy_key.pub
 documents/
 published/
 relaton/
+*.asciidoc.log.txt
